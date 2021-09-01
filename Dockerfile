@@ -12,5 +12,4 @@ RUN chmod a+x /usr/local/bin/mosdepth
 RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
 USER ubuntu
 
-# by default /bin/bash is executed
 CMD ["/bin/bash"]
