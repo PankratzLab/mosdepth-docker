@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM quay.io/baselibrary/ubuntu:14.04
 
 USER root
 
