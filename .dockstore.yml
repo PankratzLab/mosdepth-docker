@@ -3,4 +3,4 @@ workflows:
    - subclass: WDL
      primaryDescriptorPath: /Dockstore.wdl
      testParameterFiles:
-         - /test.input.json
+         - /Dockstore.json
