@@ -6,8 +6,6 @@ RUN apt-get -m update && apt-get install -y wget
 
 RUN wget "https://github.com/brentp/mosdepth/releases/download/v0.3.2/mosdepth"
 
-# RUN cp ./mosdepth /usr/local/bin/
-# RUN chmod a+x /usr/local/bin/mosdepth
 
 RUN chmod a+x mosdepth
 
@@ -15,4 +13,4 @@ RUN chmod a+x mosdepth
 RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
 USER ubuntu
 
-ENTRYPOINT ["./mosdepth"]
+CMD ["/bin/bash"]

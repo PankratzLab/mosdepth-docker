@@ -8,7 +8,7 @@ task mosdepth {
     }
 
 	command {	
-		/usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ${referenceGenome} ${outputRoot} ${bam_or_cram_input}
+		bash ./mosdepth -n -t 1 --by 1000 --fasta ${referenceGenome} ${outputRoot} ${bam_or_cram_input}
 	}
 
 	output {
@@ -16,7 +16,7 @@ task mosdepth {
 	}
 
 	runtime {
-		docker: "quay.io/jlanej/mosdepth-docker:v0.3.2"
+		docker: "quay.io/jlanej/mosdepth-docker:sha256:e0aacadac78b0352fd31454e66c3c69974b51d318d403ea1b84db7d854e8dcb4"
 		memory: mem_gb + "GB"	}
 
 	meta {
