@@ -26,3 +26,13 @@ mosdepth -n -t 1 --by 1000 --fasta GRCh38_full_analysis_set_plus_decoy_hla.fa NA
 
 
 docker run -v /Volumes/Beta2/resources/:/Volumes/Beta2/resources/ -v /Volumes/Beta2/resources/1000G/:/Volumes/Beta2/resources/1000G/ mosdepth-docker -n -t 1 --by 1000 --fasta /Volumes/Beta2/resources/GRCh38_full_analysis_set_plus_decoy_hla.fa /Volumes/Beta2/resources/1000G/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211 /Volumes/Beta2/resources/1000G/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.bam
+
+
+
+git tag --delete v0.3.2
+git push --delete origin v0.3.2
+ git tag v0.3.2
+ git push origin v0.3.2
+
+
+ /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1630611741537-0/cromwell-executions/mosdepthWorkflow/91cfaa18-2786-4065-b0e4-f340f5e127e5/call-mosdepth/execution/
