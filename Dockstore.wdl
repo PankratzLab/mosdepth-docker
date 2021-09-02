@@ -13,7 +13,12 @@ task mosdepth {
 	}
 
 	output {
-		File coverageBed = "~{outputRoot}.bed.gz"
+		File coverageBed = "~{outputRoot}.regions.bed.gz"
+		File globalDistOutput="~{outputRoot}.mosdepth.global.dist.txt"
+		File distOutput="~{outputRoot}.mosdepth.region.dist.txt"
+		File summaryOutput="~{outputRoot}.mosdepth.summary.txt"
+		
+
 	}
 
 	runtime {

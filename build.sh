@@ -36,3 +36,8 @@ git push --delete origin v0.3.2
 
 
  /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1630611741537-0/cromwell-executions/mosdepthWorkflow/91cfaa18-2786-4065-b0e4-f340f5e127e5/call-mosdepth/execution/
+
+
+
+
+ /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1630615724124-0/cromwell-executions/mosdepthWorkflow/c34c30c5-ec90-4636-9a5f-3174c6096517/call-mosdepth/execution/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.mosdepth.dist.txt
