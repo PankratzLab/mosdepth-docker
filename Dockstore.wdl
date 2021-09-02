@@ -8,7 +8,7 @@ task mosdepth {
     }
 
 	command {	
-		bash /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ${referenceGenome} ${outputRoot} ${bam_or_cram_input}
+		/usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ${referenceGenome} ${outputRoot} ${bam_or_cram_input}
 	}
 
 	output {
@@ -27,6 +27,7 @@ task mosdepth {
 workflow mosdepthWorkflow {
     input {
         File bam_or_cram_input
+        File bam_or_cram_index
         String outputRoot
         File referenceGenome
         Int mem_gb
