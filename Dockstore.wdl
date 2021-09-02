@@ -2,6 +2,7 @@ version 1.0
 task mosdepth {
     input {
         File bam_or_cram_input
+        File bam_or_cram_index
         String outputRoot
         File referenceGenome
         Int mem_gb
@@ -16,7 +17,7 @@ task mosdepth {
 	}
 
 	runtime {
-		docker: "quay.io/jlanej/mosdepth-docker:sha256:1551cd481da2410b90b7233b7898378e22dbf83b26f92eda31b703a745604a7e"
+		docker: "quay.io/jlanej/mosdepth-docker:sha256:81597cee5532de6206a9572d5ede31ae7b492675588e9a161fe1a6426babe494"
 		memory: mem_gb + "GB"	}
 
 	meta {
@@ -32,7 +33,7 @@ workflow mosdepthWorkflow {
         File referenceGenome
         Int mem_gb
     }
-	call mosdepth { input: bam_or_cram_input=bam_or_cram_input,outputRoot=outputRoot,referenceGenome=referenceGenome, mem_gb=mem_gb }
+	call mosdepth { input: bam_or_cram_input=bam_or_cram_input,bam_or_cram_index=bam_or_cram_index,outputRoot=outputRoot,referenceGenome=referenceGenome, mem_gb=mem_gb }
 }
 
 #		
