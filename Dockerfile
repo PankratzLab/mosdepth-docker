@@ -3,11 +3,8 @@ FROM quay.io/baselibrary/ubuntu:14.04
 USER root
 
 RUN apt-get -m update && apt-get install -y wget
-
-WORKDIR /tmp
 RUN wget "https://github.com/brentp/mosdepth/releases/download/v0.3.2/mosdepth"
-
-COPY ./mosdepth /usr/local/bin/
+RUN cp ./mosdepth /usr/local/bin/
 RUN chmod a+x /usr/local/bin/mosdepth
 
 # RUN chmod a+x mosdepth
