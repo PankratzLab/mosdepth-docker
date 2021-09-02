@@ -1,7 +1,0 @@
-{
-  "mosdepthWorkflow.bam_or_cram_input": "/Volumes/Beta2/resources/1000G/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.bam",
-  "mosdepthWorkflow.bam_or_cram_index": "/Volumes/Beta2/resources/1000G/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.bam.bai",
-  "mosdepthWorkflow.outputRoot":"NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211",
-  "mosdepthWorkflow.referenceGenome":"/Users/Kitty/.genvisis/resources/Genome/hg38/hg38.fa",
-  "mosdepthWorkflow.mem_gb": "4"
-}
