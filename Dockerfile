@@ -4,6 +4,7 @@ USER root
 
 RUN apt-get -m update && apt-get install -y wget
 
+WORKDIR /tmp
 RUN wget "https://github.com/brentp/mosdepth/releases/download/v0.3.2/mosdepth"
 
 COPY ./mosdepth /usr/local/bin/
