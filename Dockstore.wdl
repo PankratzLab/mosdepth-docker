@@ -9,7 +9,7 @@ task mosdepth {
     }
 
 	command {	
-		bash -c "ls;echo $PWD;/usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ${referenceGenome} ${outputRoot} ${bam_or_cram_input}"
+		bash -c "/usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ${referenceGenome} ${outputRoot} ${bam_or_cram_input}"
 	}
 
 	output {
