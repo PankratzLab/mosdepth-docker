@@ -4,7 +4,9 @@ task mosdepth {
         File bam_or_cram_input
         File bam_or_cram_index
         String outputRoot
-        File referenceGenome
+        File ref
+        File ref_fasta_index
+        File ref_dict
         Int mem_gb
         Int addtional_disk_size = 20 
         Int machine_mem_size = 15
@@ -13,7 +15,7 @@ task mosdepth {
     }
 
 	command {	
-		bash -c "/usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ${referenceGenome} ${outputRoot} ${bam_or_cram_input}"
+		bash -c "/usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ${ref} ${outputRoot} ${bam_or_cram_input}"
 	}
 
 	output {
@@ -41,7 +43,9 @@ workflow mosdepthWorkflow {
         File bam_or_cram_input
         File bam_or_cram_index
         String outputRoot
-        File referenceGenome
+        File ref
+        File ref_fasta_index
+        File ref_dict
         Int mem_gb
     }
 	call mosdepth { 
@@ -49,7 +53,9 @@ workflow mosdepthWorkflow {
 	 bam_or_cram_input=bam_or_cram_input,
 	 bam_or_cram_index=bam_or_cram_index,
 	 outputRoot=outputRoot,
-	 referenceGenome=referenceGenome,
+	 ref=ref,
+	 ref_fasta_index=ref_fasta_index,
+	 ref_dict=ref_dict,
 	 mem_gb=mem_gb 
 	}
 }
