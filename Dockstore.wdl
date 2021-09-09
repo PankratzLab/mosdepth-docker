@@ -8,6 +8,7 @@ task mosdepth {
         Int mem_gb
         Int addtional_disk_size = 20 
         Int machine_mem_size = 15
+   		Int disk_size = ceil(size(bam_or_cram_input, "GB")) + addtional_disk_size
 
     }
 
@@ -27,7 +28,7 @@ task mosdepth {
 	runtime {
 		docker: "quay.io/jlanej/mosdepth-docker:sha256:81597cee5532de6206a9572d5ede31ae7b492675588e9a161fe1a6426babe494"
 		memory: mem_gb + "GB"
-		disks: "local-disk " + addtional_disk_size + " HDD"
+		disks: "local-disk " + disk_size + " HDD"
 	}
 
 	meta {
