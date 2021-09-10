@@ -15,7 +15,7 @@ task mosdepth {
     }
 
 	command {
-		bash -c "echo ~{bam_or_cram_input}; samtools-1.13 ; [ -f ~{bam_or_cram_input}.crai ] || samtools-1.13  index ~{bam_or_cram_input} ; /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ~{ref} ~{outputRoot} ~{bam_or_cram_input}"
+		bash -c "echo ~{bam_or_cram_input}; samtools; [ -f ~{bam_or_cram_input}.crai ] || samtools index ~{bam_or_cram_input} ; /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ~{ref} ~{outputRoot} ~{bam_or_cram_input}"
 	}
 
 	output {
@@ -28,7 +28,7 @@ task mosdepth {
 	}
 
 	runtime {
-		docker: "quay.io/jlanej/mosdepth-docker:sha256:11f5d9fa42c23e12e22ac46cc1d8a40ee1a215694d9911e1a3c6275572043765"
+		docker: "quay.io/jlanej/mosdepth-docker:sha256:6c31a803fad8ed5873cbd856b057039ced23768cf260d7317c57b0f7a9663e11"
 		memory: mem_gb + "GB"
 		disks: "local-disk " + disk_size + " HDD"
 	}
