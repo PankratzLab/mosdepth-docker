@@ -1,0 +1,116 @@
+	[2021-09-10 15:21:56,54] [info] Running with database db.url = jdbc:hsqldb:mem:78cbe178-e3e8-4a58-a85a-4fbea63df3d7;shutdown=false;hsqldb.tx=mvcc
+	[2021-09-10 15:22:02,59] [info] Running migration RenameWorkflowOptionsInMetadata with a read batch size of 100000 and a write batch size of 100000
+	[2021-09-10 15:22:02,59] [info] [RenameWorkflowOptionsInMetadata] 100%
+	[2021-09-10 15:22:02,70] [info] Running with database db.url = jdbc:hsqldb:mem:e3a3be62-925a-47b8-9493-ad0d243434d7;shutdown=false;hsqldb.tx=mvcc
+	[2021-09-10 15:22:03,00] [info] Slf4jLogger started
+	[2021-09-10 15:22:03,16] [info] Workflow heartbeat configuration:
+	{
+	  "cromwellId" : "cromid-72e218e",
+	  "heartbeatInterval" : "2 minutes",
+	  "ttl" : "10 minutes",
+	  "failureShutdownDuration" : "5 minutes",
+	  "writeBatchSize" : 10000,
+	  "writeThreshold" : 10000
+	}
+	[2021-09-10 15:22:03,18] [info] Metadata summary refreshing every 1 second.
+	[2021-09-10 15:22:03,20] [info] KvWriteActor configured to flush with batch size 200 and process rate 5 seconds.
+	[2021-09-10 15:22:03,20] [info] WriteMetadataActor configured to flush with batch size 200 and process rate 5 seconds.
+	[2021-09-10 15:22:03,21] [info] CallCacheWriteActor configured to flush with batch size 100 and process rate 3 seconds.
+	[2021-09-10 15:22:03,22] [[38;5;220mwarn[0m] 'docker.hash-lookup.gcr-api-queries-per-100-seconds' is being deprecated, use 'docker.hash-lookup.gcr.throttle' instead (see reference.conf)
+	[2021-09-10 15:22:03,28] [info] JobExecutionTokenDispenser - Distribution rate: 50 per 1 seconds.
+	[2021-09-10 15:22:03,31] [info] SingleWorkflowRunnerActor: Version 57
+	[2021-09-10 15:22:03,32] [info] SingleWorkflowRunnerActor: Submitting workflow
+	[2021-09-10 15:22:03,35] [info] Unspecified type (Unspecified version) workflow c33c2a85-843d-419b-a335-97f5a3487538 submitted
+	[2021-09-10 15:22:03,36] [info] SingleWorkflowRunnerActor: Workflow submitted [38;5;2mc33c2a85-843d-419b-a335-97f5a3487538[0m
+	[2021-09-10 15:22:03,37] [info] 1 new workflows fetched by cromid-72e218e: c33c2a85-843d-419b-a335-97f5a3487538
+	[2021-09-10 15:22:03,38] [info] WorkflowManagerActor Starting workflow [38;5;2mc33c2a85-843d-419b-a335-97f5a3487538[0m
+	[2021-09-10 15:22:03,38] [info] WorkflowManagerActor Successfully started WorkflowActor-c33c2a85-843d-419b-a335-97f5a3487538
+	[2021-09-10 15:22:03,38] [info] Retrieved 1 workflows from the WorkflowStoreActor
+	[2021-09-10 15:22:03,40] [info] WorkflowStoreHeartbeatWriteActor configured to flush with batch size 10000 and process rate 2 minutes.
+	[2021-09-10 15:22:03,47] [info] MaterializeWorkflowDescriptorActor [[38;5;2mc33c2a85[0m]: Parsing workflow as WDL 1.0
+	[2021-09-10 15:22:04,11] [info] MaterializeWorkflowDescriptorActor [[38;5;2mc33c2a85[0m]: Call-to-Backend assignments: mosdepthWorkflow.mosdepth -> Local
+	[2021-09-10 15:22:04,25] [[38;5;220mwarn[0m] Local [[38;5;2mc33c2a85[0m]: Key/s [memory, disks] is/are not supported by backend. Unsupported attributes will not be part of job executions.
+	[2021-09-10 15:22:06,43] [info] WorkflowExecutionActor-c33c2a85-843d-419b-a335-97f5a3487538 [[38;5;2mc33c2a85[0m]: Starting mosdepthWorkflow.mosdepth
+	[2021-09-10 15:22:07,31] [info] Assigned new job execution tokens to the following groups: c33c2a85: 1
+	[2021-09-10 15:22:08,08] [[38;5;220mwarn[0m] BackgroundConfigAsyncJobExecutionActor [[38;5;2mc33c2a85[0mmosdepthWorkflow.mosdepth:NA:1]: Unrecognized runtime attribute keys: disks, memory
+	[2021-09-10 15:22:08,11] [[38;5;220mwarn[0m] Localization via hard link has failed: /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1011564987/hg38.fa.fai -> /Volumes/Beta2/resources/1000G/cromwell-input/4f784455-fe96-44b5-9ad4-aa2249b3b17f/Users/Kitty/.genvisis/resources/Genome/hg38/hg38.fa.fai: Cross-device link
+	[2021-09-10 15:22:08,14] [[38;5;220mwarn[0m] Localization via hard link has failed: /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1011564987/hg38.fa.dict -> /Volumes/Beta2/resources/1000G/cromwell-input/4f784455-fe96-44b5-9ad4-aa2249b3b17f/Users/Kitty/.genvisis/resources/Genome/hg38/hg38.fa.dict: Cross-device link
+	[2021-09-10 15:22:08,17] [[38;5;220mwarn[0m] Localization via hard link has failed: /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1673261190/HG00405.final.cram -> /Volumes/Beta2/resources/1000G/cromwell-input/4f784455-fe96-44b5-9ad4-aa2249b3b17f/Volumes/Beta2/resources/1000G/HG00405.final.cram: Cross-device link
+	[2021-09-10 15:22:08,30] [info] Not triggering log of token queue status. Effective log interval = None
+	[2021-09-10 15:24:05,96] [[38;5;220mwarn[0m] Localization via hard link has failed: /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1011564987/hg38.fa -> /Volumes/Beta2/resources/1000G/cromwell-input/4f784455-fe96-44b5-9ad4-aa2249b3b17f/Users/Kitty/.genvisis/resources/Genome/hg38/hg38.fa: Cross-device link
+	[2021-09-10 15:24:29,82] [info] BackgroundConfigAsyncJobExecutionActor [[38;5;2mc33c2a85[0mmosdepthWorkflow.mosdepth:NA:1]: [38;5;5mbash -c "echo /cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1673261190/HG00405.final.cram; samtools; [ -f /cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1673261190/HG00405.final.cram.crai ] || samtools index /cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1673261190/HG00405.final.cram ; /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta /cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1011564987/hg38.fa HG00405 /cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/inputs/1673261190/HG00405.final.cram"[0m
+	[2021-09-10 15:24:29,87] [info] BackgroundConfigAsyncJobExecutionActor [[38;5;2mc33c2a85[0mmosdepthWorkflow.mosdepth:NA:1]: executing: # make sure there is no preexisting Docker CID file
+	rm -f /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/docker_cid
+	# run as in the original configuration without --rm flag (will remove later)
+	docker run \
+	  --cidfile /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/docker_cid \
+	  -i \
+	   \
+	  --entrypoint /bin/bash \
+	  -v /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth:/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth:delegated \
+	  quay.io/jlanej/mosdepth-docker@sha256:6c31a803fad8ed5873cbd856b057039ced23768cf260d7317c57b0f7a9663e11 /cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/script
+	
+	# get the return code (working even if the container was detached)
+	rc=$(docker wait [38;5;5mcat /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/docker_cid[0m)
+	
+	# remove the container after waiting
+	docker rm [38;5;5mcat /private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/docker_cid[0m
+	
+	# return exit code
+	exit $rc
+	[2021-09-10 15:24:33,25] [info] BackgroundConfigAsyncJobExecutionActor [[38;5;2mc33c2a85[0mmosdepthWorkflow.mosdepth:NA:1]: job id: 98455
+	[2021-09-10 15:24:33,26] [info] BackgroundConfigAsyncJobExecutionActor [[38;5;2mc33c2a85[0mmosdepthWorkflow.mosdepth:NA:1]: Status change from - to WaitingForReturnCode
+	[2021-09-10 15:35:06,05] [info] BackgroundConfigAsyncJobExecutionActor [[38;5;2mc33c2a85[0mmosdepthWorkflow.mosdepth:NA:1]: Status change from WaitingForReturnCode to Done
+	[2021-09-10 15:35:06,77] [info] WorkflowExecutionActor-c33c2a85-843d-419b-a335-97f5a3487538 [[38;5;2mc33c2a85[0m]: Workflow mosdepthWorkflow complete. Final Outputs:
+	{
+	  "mosdepthWorkflow.mosdepth.coverageBed": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.regions.bed.gz",
+	  "mosdepthWorkflow.mosdepth.distOutput": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.mosdepth.region.dist.txt",
+	  "mosdepthWorkflow.mosdepth.globalDistOutput": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.mosdepth.global.dist.txt",
+	  "mosdepthWorkflow.mosdepth.summaryOutput": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.mosdepth.summary.txt"
+	}
+	[2021-09-10 15:35:06,80] [info] WorkflowManagerActor WorkflowActor-c33c2a85-843d-419b-a335-97f5a3487538 is in a terminal state: WorkflowSucceededState
+	[2021-09-10 15:35:25,53] [info] SingleWorkflowRunnerActor workflow finished with status 'Succeeded'.
+	{
+	  "outputs": {
+	    "mosdepthWorkflow.mosdepth.distOutput": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.mosdepth.region.dist.txt",
+	    "mosdepthWorkflow.mosdepth.coverageBed": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.regions.bed.gz",
+	    "mosdepthWorkflow.mosdepth.globalDistOutput": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.mosdepth.global.dist.txt",
+	    "mosdepthWorkflow.mosdepth.summaryOutput": "/private/var/folders/k8/j23ljhw13m913yt63gk2vwtw0000gn/T/1631305281225-0/cromwell-executions/mosdepthWorkflow/c33c2a85-843d-419b-a335-97f5a3487538/call-mosdepth/execution/HG00405.mosdepth.summary.txt"
+	  },
+	  "id": "c33c2a85-843d-419b-a335-97f5a3487538"
+	}
+	[2021-09-10 15:35:28,29] [info] Workflow polling stopped
+	[2021-09-10 15:35:28,29] [info] 0 workflows released by cromid-72e218e
+	[2021-09-10 15:35:28,30] [info] Shutting down WorkflowStoreActor - Timeout = 5 seconds
+	[2021-09-10 15:35:28,30] [info] Shutting down WorkflowLogCopyRouter - Timeout = 5 seconds
+	[2021-09-10 15:35:28,30] [info] Shutting down JobExecutionTokenDispenser - Timeout = 5 seconds
+	[2021-09-10 15:35:28,30] [info] JobExecutionTokenDispenser stopped
+	[2021-09-10 15:35:28,30] [info] Aborting all running workflows.
+	[2021-09-10 15:35:28,30] [info] WorkflowStoreActor stopped
+	[2021-09-10 15:35:28,31] [info] WorkflowLogCopyRouter stopped
+	[2021-09-10 15:35:28,31] [info] Shutting down WorkflowManagerActor - Timeout = 3600 seconds
+	[2021-09-10 15:35:28,31] [info] WorkflowManagerActor All workflows finished
+	[2021-09-10 15:35:28,31] [info] WorkflowManagerActor stopped
+	[2021-09-10 15:35:28,52] [info] Connection pools shut down
+	[2021-09-10 15:35:28,52] [info] Shutting down SubWorkflowStoreActor - Timeout = 1800 seconds
+	[2021-09-10 15:35:28,52] [info] Shutting down JobStoreActor - Timeout = 1800 seconds
+	[2021-09-10 15:35:28,52] [info] Shutting down CallCacheWriteActor - Timeout = 1800 seconds
+	[2021-09-10 15:35:28,52] [info] Shutting down ServiceRegistryActor - Timeout = 1800 seconds
+	[2021-09-10 15:35:28,52] [info] SubWorkflowStoreActor stopped
+	[2021-09-10 15:35:28,52] [info] Shutting down DockerHashActor - Timeout = 1800 seconds
+	[2021-09-10 15:35:28,52] [info] Shutting down IoProxy - Timeout = 1800 seconds
+	[2021-09-10 15:35:28,52] [info] KvWriteActor Shutting down: 0 queued messages to process
+	[2021-09-10 15:35:28,52] [info] WriteMetadataActor Shutting down: 0 queued messages to process
+	[2021-09-10 15:35:28,52] [info] CallCacheWriteActor Shutting down: 0 queued messages to process
+	[2021-09-10 15:35:28,52] [info] JobStoreActor stopped
+	[2021-09-10 15:35:28,52] [info] CallCacheWriteActor stopped
+	[2021-09-10 15:35:28,52] [info] DockerHashActor stopped
+	[2021-09-10 15:35:28,52] [info] IoProxy stopped
+	[2021-09-10 15:35:28,52] [info] ServiceRegistryActor stopped
+	[2021-09-10 15:35:28,54] [info] Database closed
+	[2021-09-10 15:35:28,54] [info] Stream materializer shut down
+	[2021-09-10 15:35:28,54] [info] Shutting down connection pool: curAllocated=0 idleQueues.size=0 waitQueue.size=0 maxWaitQueueLimit=256 closed=false
+	[2021-09-10 15:35:28,54] [info] Shutting down connection pool: curAllocated=0 idleQueues.size=0 waitQueue.size=0 maxWaitQueueLimit=256 closed=false
+	[2021-09-10 15:35:28,54] [info] Shutting down connection pool: curAllocated=0 idleQueues.size=0 waitQueue.size=0 maxWaitQueueLimit=256 closed=false
+	[2021-09-10 15:35:28,54] [info] Shutting down connection pool: curAllocated=0 idleQueues.size=0 waitQueue.size=0 maxWaitQueueLimit=256 closed=false
+	[2021-09-10 15:35:28,54] [info] WDL HTTP import resolver closed

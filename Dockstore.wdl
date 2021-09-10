@@ -2,7 +2,7 @@ version 1.0
 task mosdepth {
     input {
         File bam_or_cram_input
-        File bam_or_cram_index
+        File bam_or_cram_index=~{bam_or_cram_input}.crai
         String outputRoot
         File ref
         File ref_fasta_index
@@ -15,7 +15,7 @@ task mosdepth {
     }
 
 	command {
-		bash -c "echo ~{bam_or_cram_input}; samtools; [ -f ~{bam_or_cram_input}.crai ] || samtools index ~{bam_or_cram_input} ; /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ~{ref} ~{outputRoot} ~{bam_or_cram_input}"
+		bash -c "echo ~{bam_or_cram_input}; samtools; [ -f ~{bam_or_cram_index} ] || samtools index ~{bam_or_cram_input} ; /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ~{ref} ~{outputRoot} ~{bam_or_cram_input}"
 	}
 
 	output {
@@ -41,7 +41,6 @@ task mosdepth {
 workflow mosdepthWorkflow {
     input {
         File bam_or_cram_input
-        File bam_or_cram_index
         String outputRoot
         File ref
         File ref_fasta_index
@@ -51,7 +50,6 @@ workflow mosdepthWorkflow {
 	call mosdepth { 
 		input:
 	 bam_or_cram_input=bam_or_cram_input,
-	 bam_or_cram_index=bam_or_cram_index,
 	 outputRoot=outputRoot,
 	 ref=ref,
 	 ref_fasta_index=ref_fasta_index,
