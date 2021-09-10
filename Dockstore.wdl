@@ -15,7 +15,7 @@ task mosdepth {
     }
 
 	command {
-		bash -c "echo ~{bam_or_cram_input}; [ -f ~{bam_or_cram_input}.crai ] || samtools index ~{bam_or_cram_input} ; /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ~{ref} ~{outputRoot} ~{bam_or_cram_input}"
+		bash -c "echo ~{bam_or_cram_input}; samtools; [ -f ~{bam_or_cram_input}.crai ] || samtools index ~{bam_or_cram_input} ; /usr/local/bin/mosdepth -n -t 1 --by 1000 --fasta ~{ref} ~{outputRoot} ~{bam_or_cram_input}"
 	}
 
 	output {
