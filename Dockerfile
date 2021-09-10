@@ -16,9 +16,6 @@ RUN chmod a+x /usr/local/bin/mosdepth
 
 
 
-RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
-USER ubuntu
-
 WORKDIR /usr/src
 
 RUN wget https://github.com/samtools/samtools/releases/download/1.13/samtools-1.13.tar.bz2 && \
@@ -29,5 +26,10 @@ RUN wget https://github.com/samtools/samtools/releases/download/1.13/samtools-1.
 	make
 
 ENV PATH=${PATH}:/usr/src/samtools-1.13 
+
+
+RUN groupadd -r -g 1000 ubuntu && useradd -r -g ubuntu -u 1000 ubuntu
+USER ubuntu
+
 
 CMD ["/bin/bash"]
