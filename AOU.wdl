@@ -11,6 +11,7 @@ task mosdepth {
         Int mem_gb = 8  # mosdepth is memory-light; 8 is plenty
         Boolean fast_mode = false  # mosdepth -x: faster, values shift slightly; don't mix modes within a dataset
         String docker_image = "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
+        String disk_type = "SSD"  # or "HDD" — fallback if pd-ssd regional quota constrains a big scatter
         Int additional_disk_size = 20  # headroom over input size for the ~3 GB reference and outputs
         Int disk_size = ceil(size(bam_or_cram_input, "GB")) + additional_disk_size
     }
@@ -30,7 +31,7 @@ task mosdepth {
 		docker: docker_image
 		memory: mem_gb + " GB"
 		cpu: threads
-		disks: "local-disk " + disk_size + " SSD"
+		disks: "local-disk " + disk_size + " " + disk_type
 	}
 
 	meta {
@@ -50,6 +51,7 @@ workflow mosdepthWorkflow {
         Int mem_gb = 8
         Boolean fast_mode = false
         String docker_image = "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
+        String disk_type = "SSD"
     }
 	call mosdepth {
 		input:
@@ -62,6 +64,7 @@ workflow mosdepthWorkflow {
 	 threads=threads,
 	 mem_gb=mem_gb,
 	 fast_mode=fast_mode,
-	 docker_image=docker_image
+	 docker_image=docker_image,
+	 disk_type=disk_type
 	}
 }

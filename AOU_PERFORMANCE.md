@@ -22,14 +22,18 @@ so the VM size always matches what mosdepth uses. CRAM decompression is the
 bottleneck; mosdepth benefits from up to ~4 threads (little gain beyond).
 Shorter tasks also get preempted less.
 
-## 3. SSD working disk (applied — the WDL default)
+## 3. SSD working disk (`disk_type` input, default "SSD")
 
-The runtime uses `disks: "local-disk " + disk_size + " SSD"`. GCP
-persistent-disk throughput scales with disk size *and* type — a ~40 GB
+GCP persistent-disk throughput scales with disk size *and* type — a ~40 GB
 `HDD` (pd-standard) disk can bottleneck simply localizing a 15–20 GB CRAM,
 while SSD costs only a few cents more per task-hour and usually pays for
 itself in saved VM time. `SSD`/`HDD` are the standard Cromwell disk types
 on the GCP backends, so this runs on AoU's Google Batch stack unchanged.
+
+Why it's an input: pd-ssd and pd-standard have separate regional quotas.
+If a very wide scatter exhausts pd-ssd quota and throttles concurrency,
+set `"mosdepthWorkflow.disk_type": "HDD"` as an operational fallback — no
+WDL edit needed.
 
 ## 4. mosdepth fast mode (`fast_mode` input, default false)
 
