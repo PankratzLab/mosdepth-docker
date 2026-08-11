@@ -2,16 +2,17 @@ version 1.0
 task mosdepth {
     input {
         File bam_or_cram_input
-        File bam_or_cram_index
+        File bam_or_cram_index  # localized next to the input; AoU CRAM indexes are named <name>.cram.crai
         String outputRoot
-        File ref
+        File ref  # must be the reference the CRAM/BAM was aligned to
         File ref_fasta_index
-        File ref_dict
-        Int threads
-        Int mem_gb = 8
-        Boolean fast_mode = false
+        File ref_dict  # not used by mosdepth; harmless to keep
+        Int threads = 4  # drives both mosdepth -t and runtime cpu; little gain beyond 4
+        Int mem_gb = 8  # mosdepth is memory-light; 8 is plenty
+        Boolean fast_mode = false  # mosdepth -x: faster, values shift slightly; don't mix modes within a dataset
+        # for large AoU scatters, override with the GAR remote-repo path (see AOU_PERFORMANCE.md)
         String docker_image = "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
-        Int additional_disk_size = 20
+        Int additional_disk_size = 20  # headroom over input size for the ~3 GB reference and outputs
         Int disk_size = ceil(size(bam_or_cram_input, "GB")) + additional_disk_size
     }
 
@@ -46,7 +47,7 @@ workflow mosdepthWorkflow {
         File ref
         File ref_fasta_index
         File ref_dict
-        Int threads
+        Int threads = 4
         Int mem_gb = 8
         Boolean fast_mode = false
         String docker_image = "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"

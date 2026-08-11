@@ -17,10 +17,10 @@ Cromwell retries a preempted task up to 3 times, then falls back to on-demand.
 
 ## 2. Threads for CRAM decoding
 
-`threads` is a required workflow input, wired to both mosdepth `-t` and the
-runtime `cpu`. CRAM decompression is the bottleneck; mosdepth benefits from
-up to ~4 threads (little gain beyond). Shorter tasks also get preempted less.
-**Recommended: `"mosdepthWorkflow.threads": 4`.**
+`threads` (default 4) is wired to both mosdepth `-t` and the runtime `cpu`,
+so the VM size always matches what mosdepth uses. CRAM decompression is the
+bottleneck; mosdepth benefits from up to ~4 threads (little gain beyond).
+Shorter tasks also get preempted less.
 
 ## 3. SSD instead of HDD for the working disk
 
