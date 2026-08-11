@@ -30,7 +30,7 @@ task mosdepth {
 		docker: docker_image
 		memory: mem_gb + " GB"
 		cpu: threads
-		disks: "local-disk " + disk_size + " HDD"
+		disks: "local-disk " + disk_size + " SSD"
 	}
 
 	meta {
