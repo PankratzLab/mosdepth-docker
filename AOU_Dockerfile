@@ -10,6 +10,4 @@ RUN wget -q "https://github.com/brentp/mosdepth/releases/download/v${MOSDEPTH_VE
 		-O /usr/local/bin/mosdepth && \
 	chmod a+x /usr/local/bin/mosdepth
 
-USER ubuntu
-
 CMD ["/bin/bash"]

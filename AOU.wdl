@@ -28,7 +28,7 @@ task mosdepth {
 	}
 
 	runtime {
-		docker: "jlanej/mosdepth-docker@sha256:4759d71c17268e2a3543a11e40511180d0d7f97e1172e4f7ec1f3c675103693b"
+		docker: "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
 		memory: mem_gb + "GB"
 		disks: "local-disk " + disk_size + " HDD"
 	}
