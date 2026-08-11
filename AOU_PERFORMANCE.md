@@ -47,13 +47,43 @@ outputs within one dataset.
 mosdepth is memory-light; `mem_gb` defaults to 8, which pairs well with
 `threads = 4`. Rarely a reason to raise it.
 
-## 6. At cohort scale
+## 6. At cohort scale: pull through the AoU GAR remote repository
 
-- Docker Hub anonymous pulls are rate-limited. If scattering over thousands
-  of samples, mirror the digest-pinned image to a public GCP Artifact
-  Registry (or GHCR) repo and point `docker:` there.
-- Keep the image pinned by digest (reproducibility, and identical caching
-  behavior across the fleet).
+Docker Hub anonymous pulls are rate-limited per IP, and a large scatter
+(thousands of VMs behind shared NAT IPs, each pulling the image once) is the
+worst case for it. The Researcher Workbench solves this natively: it fronts
+Docker Hub with a Google Artifact Registry **remote repository** (a
+pull-through cache in us-central1). The first pull fetches from Docker Hub
+and caches inside AoU; every subsequent VM pulls from the cache —
+GCP-internal, no Docker Hub limits.
+
+To use it, set the `docker_image` input to the Docker Hub path appended to
+the AoU remote-repo prefix. The prefix is exposed in workbench environments
+as the `ARTIFACT_REGISTRY_DOCKER_REPO` environment variable; prefer
+composing from it (in the notebook that writes your inputs JSON) in case the
+underlying path changes:
+
+```python
+import os
+docker_image = (
+    os.environ["ARTIFACT_REGISTRY_DOCKER_REPO"]
+    + "/jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
+)
+```
+
+which currently resolves to:
+
+```
+us-central1-docker.pkg.dev/all-of-us-rw-prod/aou-rw-gar-remote-repo-docker-prod/jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d
+```
+
+Notes:
+
+- The digest is preserved through the proxy — same `@sha256:...` everywhere,
+  so reproducibility is unchanged.
+- The remote repo is only reachable from inside the Workbench. The default
+  `docker_image` (plain Docker Hub) remains right for small runs and for use
+  outside AoU.
 
 ## Example performance-test inputs
 
@@ -66,4 +96,5 @@ mosdepth is memory-light; `mem_gb` defaults to 8, which pairs well with
 ```
 
 Compare wall-clock against `"fast_mode": false` (and `threads` 1 vs 4) on a
-few representative CRAMs before committing to full-cohort settings.
+few representative CRAMs before committing to full-cohort settings. For the
+full-cohort scatter, add the `docker_image` override from section 6.

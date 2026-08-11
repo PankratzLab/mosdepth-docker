@@ -10,6 +10,7 @@ task mosdepth {
         Int threads
         Int mem_gb = 8
         Boolean fast_mode = false
+        String docker_image = "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
         Int additional_disk_size = 20
         Int disk_size = ceil(size(bam_or_cram_input, "GB")) + additional_disk_size
     }
@@ -26,7 +27,7 @@ task mosdepth {
 	}
 
 	runtime {
-		docker: "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
+		docker: docker_image
 		memory: mem_gb + " GB"
 		cpu: threads
 		disks: "local-disk " + disk_size + " HDD"
@@ -48,6 +49,7 @@ workflow mosdepthWorkflow {
         Int threads
         Int mem_gb = 8
         Boolean fast_mode = false
+        String docker_image = "jlanej/mosdepth-docker@sha256:06732e3ab3bdff0fc44a98c69d97d3c601ad4ef6d23c02660a9899188ae5b98d"
     }
 	call mosdepth {
 		input:
@@ -59,6 +61,7 @@ workflow mosdepthWorkflow {
 	 ref_dict=ref_dict,
 	 threads=threads,
 	 mem_gb=mem_gb,
-	 fast_mode=fast_mode
+	 fast_mode=fast_mode,
+	 docker_image=docker_image
 	}
 }
